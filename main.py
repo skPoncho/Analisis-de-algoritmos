@@ -1,3 +1,6 @@
+#Carlos alfonso Barrón Rivera
+#Jan Mario Gasca Molinero
+#Miguel Bañuelos Ramos
 import tkinter
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
@@ -8,8 +11,10 @@ import numpy as np
 from tkinter import messagebox
 from math import *
 
+from numpy.core.fromnumeric import ptp
+
 vantana_raiz = tkinter.Tk()
-vantana_raiz.title("Graficador")
+vantana_raiz.title("Graficador de funciones")
 vantana_raiz.configure(background = 'old lace')
 ta = vantana_raiz.geometry("1000x700")
 
@@ -37,7 +42,7 @@ def animate(i):
     global ul_ran
     if act_rango == True:
         try:
-            lmin = float(ran[0]);
+            lmin = float(ran[0])
             lmax = float(ran[1])
             if lmin < lmax:
                 x = np.arange(lmin, lmax, .01)  # .01
@@ -64,7 +69,7 @@ def animate(i):
     ani.event_source.stop()  # DETIENE ANIMACIÓN
 
 
-def represent():
+def representar():
     global graph_data
     global ran
     global act_rango
@@ -76,6 +81,8 @@ def represent():
     ta = texto_orig.replace("sin", "np.sin")
     tb = ta.replace("cos", "np.cos")
     tl = tb.replace("log", "np.log")
+    if tl.find("ln") != -1:
+        tl = "np.divide("+tl.replace("ln", "np.log")+",np.log(np.e))"
     tc = tl.replace("tan", "np.tan")
     tr = tc.replace("sqrt", "np.sqrt")
     graph_data = tr
@@ -91,7 +98,7 @@ etiqueta.pack()
 #etiqueta2= tkinter.Label(vantana_raiz,text="Escribe función")
 #etiqueta2.pack(padx=10 , side=tkinter.CENTER)
 et.config(bg="white", justify="left") #  color y posicion de recuadro de inserción de funcion
-boton = tkinter.Button(master=vantana_raiz, text="Graficar", bg="grey", command=represent)
+boton = tkinter.Button(master=vantana_raiz, text="Graficar", bg="grey", command=representar)
 boton.pack(side=tkinter.BOTTOM)
 et.pack(side=tkinter.BOTTOM)
 ets = tkinter.Entry(master=vantana_raiz, width=40)
