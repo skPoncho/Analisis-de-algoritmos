@@ -73,9 +73,11 @@ def represent():
         act_rango = True
     ta = texto_orig.replace("sin", "np.sin")
     tb = ta.replace("cos", "np.cos")
+
     tl = tb.replace("log", "np.log")
     tc = tl.replace("tan", "np.tan")
     tr = tc.replace("sqrt", "np.sqrt")
+    
     graph_data = tr
     ani.event_source.start()  # INICIA/REANUDA ANIMACIÓN
 
