@@ -1,3 +1,7 @@
+#Carlos Alfonso Barrón Rivera 2019630166 equipo 6
+#Jan gasca
+#Miguel
+
 import tkinter
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
@@ -7,6 +11,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 from tkinter import messagebox
 from math import *
+
+
+from numpy.core.fromnumeric import ptp
 
 vantana_raiz = tkinter.Tk()
 vantana_raiz.title("Graficador")
@@ -73,11 +80,22 @@ def represent():
         rann = ets.get()
         ran = rann.split(",")
         act_rango = True
+   # if texto_orig.find("/") != -1:
+    #    aux = texto_orig.split("/")
+     #   aux2 = aux[0].split("+")
+      #  aux[0] = "np.sum(["+aux2[0]+","+aux2[1]+"])"
+       # aux2 = aux[1].split("+")
+        #aux[1] = "np.sum(["+aux2[0]+","+aux2[1]+"])"
+        #texto_orig = "np.divide("+aux[0]+","+aux[1]+")"
     ta = texto_orig.replace("sin", "np.sin")
     tb = ta.replace("cos", "np.cos")
     tl = tb.replace("log", "np.log")
+    if tl.find("ln") != -1:
+        tl = "np.divide("+tl.replace("ln", "np.log")+",np.log(np.e))"
     tc = tl.replace("tan", "np.tan")
     tr = tc.replace("sqrt", "np.sqrt")
+    print(tr)
+    
     graph_data = tr
     ani.event_source.start()  # INICIA/REANUDA ANIMACIÓN
 
