@@ -29,8 +29,7 @@ canvas.draw()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
 toolbar = NavigationToolbar2Tk(canvas, ventana)  # barra de iconos
-#toolbar.update()
-#canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
+
 
 act_rango = False
 ul_ran = ""
@@ -61,7 +60,7 @@ def animar(i):
     try:
         info = eval(info_graficar_f1)#informacion grafica 1
         info2 = eval(info_graficar_f2)#informacion grafica 2
-        #grafica.clear()
+        grafica.clear()
         grafica.plot(x, info)#graficar f1
         grafica.plot(x, info2)#graficar f2
     except:
@@ -109,7 +108,6 @@ button = tkinter.Button(master=ventana, text="Graficar", bg="grey", command=repr
 
 
 
-#entrada_funcion1.pack(side=tkinter.BOTTOM)
 etiqueta_rango.pack(side='left')
 entrada_rango.pack(side='left')
 etiqueta_f_1.pack(side='left')
@@ -117,6 +115,7 @@ entrada_funcion1.pack(side='left')
 etiqueta_f_2.pack(side='left')
 entrada_funcion2.pack(side='left')
 button.pack(side='left')
+
 
 # ets.insert(0,"RANGO DE X")
 
