@@ -27,7 +27,7 @@ def animate(i):
         except:
             messagebox.showwarning("Error", " Separa por comas los valores, intentalo de nuevo.")
             act_rango = False
-            ets.delete(0, len(ets.get()))
+            txt_rangox.delete(0, len(txt_rangox.get()))
     else:
         if ul_ran != "":
             x = np.arange(ul_ran[0], ul_ran[1], .01)  # .01
@@ -48,9 +48,9 @@ def representar():
     global graph_data
     global ran
     global act_rango
-    texto_orig = et.get()
-    if ets.get() != "":
-        rann = ets.get()
+    texto_orig = txt_ecuacion.get()
+    if txt_rangox.get() != "":
+        rann = txt_rangox.get()
         ran = rann.split(",")
         act_rango = True
     
@@ -83,7 +83,7 @@ def representar():
 vantana_raiz = tkinter.Tk()
 vantana_raiz.title("Graficador de funciones")
 vantana_raiz.configure(background = 'old lace')
-ta = vantana_raiz.geometry("1000x700")
+vantana_raiz.geometry("1000x700")
 
 plt.style.use('dark_background')
 
@@ -107,20 +107,26 @@ ani = animation.FuncAnimation(fig, animate, interval=1000)
 
 plt.show()
 
-et = tkinter.Entry(master=vantana_raiz, width=60)
+
+txt_ecuacion = tkinter.Entry(master=vantana_raiz, width=60)
+
 etiqueta= tkinter.Label(vantana_raiz,text="Escribe el rango separado por coma")
 etiqueta.pack()
-#etiqueta2= tkinter.Label(vantana_raiz,text="Escribe función")
+etiqueta2= tkinter.Label(vantana_raiz,text="Escribe función")
 #etiqueta2.pack(padx=10 , side=tkinter.CENTER)
-et.config(bg="white", justify="left") #  color y posicion de recuadro de inserción de funcion
+
+txt_ecuacion.config(bg="white", justify="left") #  color y posicion de recuadro de inserción de funcion
 boton = tkinter.Button(master=vantana_raiz, text="Graficar", bg="grey", command=representar)
+
 boton.pack(side=tkinter.BOTTOM)
-et.pack(side=tkinter.BOTTOM)
 
-ets = tkinter.Entry(master=vantana_raiz, width=40)
-ets.config(bg="white")
-ets.pack(side=tkinter.BOTTOM)
+txt_ecuacion.pack(side=tkinter.BOTTOM)
+etiqueta2.pack(side=tkinter.BOTTOM)
 
-# ets.insert(0,"RANGO DE X")
+txt_rangox = tkinter.Entry(master=vantana_raiz, width=40)
+txt_rangox.config(bg="white")
+txt_rangox.pack(side=tkinter.BOTTOM)
 
-tkinter.mainloop()
+# txt_rangox.insert(0,"RANGO DE X")
+
+vantana_raiz.mainloop()
