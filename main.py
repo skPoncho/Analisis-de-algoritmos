@@ -1,7 +1,10 @@
 #Carlos alfonso Barrón Rivera
 #Jan Mario Gasca Molinero
 #Miguel Bañuelos Ramos
+<<<<<<< HEAD
 
+=======
+>>>>>>> b8294f4e2ab80136f344d1e7ae41a151ba2e2e6e
 import tkinter
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
@@ -12,6 +15,33 @@ import numpy as np
 from tkinter import messagebox
 from math import *
 
+<<<<<<< HEAD
+=======
+vantana_raiz = tkinter.Tk()
+vantana_raiz.title("Graficador de funciones")
+vantana_raiz.configure(background = 'old lace')
+ta = vantana_raiz.geometry("1000x700")
+
+plt.style.use('dark_background')
+
+
+fig = Figure()
+ax1 = fig.add_subplot(111)
+
+canvas = FigureCanvasTkAgg(fig, master=vantana_raiz)  # CREAR AREA DE DIBUJO DE TKINTER.
+canvas.draw()
+canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
+
+toolbar = NavigationToolbar2Tk(canvas, vantana_raiz)  # barra de iconos
+toolbar.update()
+canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
+
+act_rango = False
+ul_ran = ""
+ran = ""
+
+
+>>>>>>> b8294f4e2ab80136f344d1e7ae41a151ba2e2e6e
 def animate(i):
     global act_rango
     global ul_ran
@@ -53,6 +83,7 @@ def representar():
         rann = ets.get()
         ran = rann.split(",")
         act_rango = True
+<<<<<<< HEAD
     
     ta = texto_orig.replace("sin", "np.sin")
     tb = ta.replace("cos", "np.cos")
@@ -71,13 +102,14 @@ def representar():
        # aux2 = aux[1].split("+")
         #aux[1] = "np.sum(["+aux2[0]+","+aux2[1]+"])"
         #texto_orig = "np.divide("+aux[0]+","+aux[1]+")"
+=======
+>>>>>>> b8294f4e2ab80136f344d1e7ae41a151ba2e2e6e
     ta = texto_orig.replace("sin", "np.sin")
     tb = ta.replace("cos", "np.cos")
     tl = tb.replace("log", "np.log")
-    if tl.find("ln") != -1:
-        tl = "np.divide("+tl.replace("ln", "np.log")+",np.log(np.e))"
     tc = tl.replace("tan", "np.tan")
     tr = tc.replace("sqrt", "np.sqrt")
+<<<<<<< HEAD
     print(tr)
 """
 vantana_raiz = tkinter.Tk()
@@ -101,6 +133,10 @@ canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 act_rango = False
 ul_ran = ""
 ran = ""
+=======
+    graph_data = tr
+    ani.event_source.start()  # INICIA/REANUDA ANIMACIÓN
+>>>>>>> b8294f4e2ab80136f344d1e7ae41a151ba2e2e6e
 
 
 ani = animation.FuncAnimation(fig, animate, interval=1000)
