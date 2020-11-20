@@ -59,10 +59,12 @@ def animar(i):
             x = np.arange(0, 5, .01)   #trae valores de x para el rango ide -2 a por default
     try:
         info = eval(info_graficar_f1)#informacion grafica 1
-        info2 = eval(info_graficar_f2)#informacion grafica 2
+        if entrada_funcion2.get() != "":
+            info2 = eval(info_graficar_f2)#informacion grafica 2
         grafica.clear()
         grafica.plot(x, info)#graficar f1
-        grafica.plot(x, info2)#graficar f2
+        if entrada_funcion2.get() != "":
+            grafica.plot(x, info2)#graficar f2
     except:
         grafica.plot()
     grafica.axhline(0, color="red")#color dl eje x
