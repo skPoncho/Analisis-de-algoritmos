@@ -35,12 +35,12 @@ def animate(i):
             x = np.arange(0, 10, .01)  # .01
     try:
         solo = eval(graph_data)
-        ax1.clear()
-        ax1.plot(x, solo)
+        graficadora.clear()
+        graficadora.plot(x, solo)
     except:
-        ax1.plot()
-    ax1.axhline(0, color="red")
-    ax1.axvline(0, color="red")
+        graficadora.plot()
+    graficadora.axhline(0, color="red")
+    graficadora.axvline(0, color="red")
     ani.event_source.stop()  # DETIENE ANIMACIÓN
 
 
@@ -88,7 +88,7 @@ vantana_raiz.geometry("1000x700")
 plt.style.use('dark_background')
 
 fig = Figure()
-ax1 = fig.add_subplot(111)
+graficadora = fig.add_subplot(111)
 
 canvas = FigureCanvasTkAgg(fig, master=vantana_raiz)  # CREAR AREA DE DIBUJO DE TKINTER.
 canvas.draw()
