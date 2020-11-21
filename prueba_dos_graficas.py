@@ -84,7 +84,7 @@ def representar():
     if entrada_rango.get() != "":
         rango = entrada_rango.get().split(",")
         act_rango = True
-    funcion_1_procesada = funcion_1.replace("sin", "np.sin").replace("cos", "np.cos").replace("log", "np.log").replace("tan", "np.tan").replace("sqrt", "np.sqrt")
+    funcion_1_procesada = funcion_1.replace("sin", "np.sin").replace("cos", "np.cos").replace("log", "np.log").replace("tan", "np.tan").replace("sqrt", "np.sqrt").replace("^", "**")
     if funcion_1_procesada.find("ln") != -1:
         funcion_1_procesada = "np.divide("+funcion_1_procesada.replace("ln", "np.log")+",np.log(np.e))"
     info_graficar_f1 = funcion_1_procesada
